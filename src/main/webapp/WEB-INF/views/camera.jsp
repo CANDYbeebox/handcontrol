@@ -67,7 +67,7 @@
                 </div>
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li><a data-toggle="modal" data-target="#localSetting"><i class=" ion-settings" aria-hidden="true"></i>本地设置</a></li>
+                        <%--<li><a data-toggle="modal" data-target="#localSetting"><i class=" ion-settings" aria-hidden="true"></i>本地设置</a></li>--%>
                         <li><a href="http://www.wxtjy.com/"><i class="fa fa-home" aria-hidden="true"></i>访问特检网首页</a></li>
                     </ul>
                     <%--<form class="navbar-form navbar-left" role="search">--%>
@@ -149,8 +149,8 @@
                                     <button class="btn btn-primary" onclick="StartRealPlay()">播放</button>
                                     <button class="btn btn-warning" onclick="StopRealPlay()">停止</button>
                                     <br>
-                                    <button class="btn btn-primary" onclick="clickStartRecord()">开始录像</button>
-                                    <button class="btn btn-warning" onclick="clickStopRecord()">停止录像</button>
+                                    <%--<button class="btn btn-primary" onclick="clickStartRecord()">开始录像</button>--%>
+                                    <%--<button class="btn btn-warning" onclick="clickStopRecord()">停止录像</button>--%>
                                 </fieldset>
                             </div>
                             <div class="col-md-9">
