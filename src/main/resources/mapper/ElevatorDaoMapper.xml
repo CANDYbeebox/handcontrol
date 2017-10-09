@@ -7,7 +7,7 @@
         select * from test_elevator where Address like '%${value}%'
     </select>
     <select id="searchDetail" resultType="com.black.pojo.ElevatorEntity">
-        select * from test_elevator where useunit=#{useunit}
+        select * from test_elevator where UseUnit=#{useunit}
     </select>
     <select id="searchByName" resultType="com.black.pojo.ElevatorEntity">
         select * from test_elevator where UseUnit like '%${value}%'
