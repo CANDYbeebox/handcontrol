@@ -5,21 +5,36 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!--扫描业务层组件-->
     <context:component-scan base-package="com.black.service"></context:component-scan>
-
+    <!-- 引入外部的属性文件 -->
+    <context:property-placeholder location="classpath:properties/jdbc.properties"/>
     <!--c3p0数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <!--<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vip"></property>-->
-        <property name="jdbcUrl" value="jdbc:mysql://139.199.185.246/wxtjy?characterEncoding=UTF-8"></property>
-        <property name="user" value="root"></property>
-        <!--<property name="password" value="lyl123"></property>-->
-        <property name="password" value="zangkun110"></property>
-        <property name="minPoolSize" value="1"></property>
-        <property name="maxPoolSize" value="5"></property>
-        <property name="initialPoolSize" value="1"></property>
-        <property name="acquireIncrement" value="1"></property>
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <!--<property name="jdbcUrl" value="jdbc:mysql://139.199.185.246/wxtjy"></property>-->
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <!--<property name="password" value="zangkun110"></property>-->
+        <property name="minPoolSize" value="${jdbc.minPoolSize}"></property>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"></property>
+        <property name="acquireIncrement" value="${jdbc.acquireIncrement}"></property>
 
     </bean>
+
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+        <!--<property name="driverClass" value="com.mysql.jdbc.Driver"></property>-->
+        <!--&lt;!&ndash;<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/vip"></property>&ndash;&gt;-->
+        <!--<property name="jdbcUrl" value="jdbc:mysql://139.199.185.246/wxtjy?characterEncoding=UTF-8"></property>-->
+        <!--<property name="user" value="root"></property>-->
+        <!--&lt;!&ndash;<property name="password" value="lyl123"></property>&ndash;&gt;-->
+        <!--<property name="password" value="zangkun110"></property>-->
+        <!--<property name="minPoolSize" value="1"></property>-->
+        <!--<property name="maxPoolSize" value="5"></property>-->
+        <!--<property name="initialPoolSize" value="1"></property>-->
+        <!--<property name="acquireIncrement" value="1"></property>-->
+
+    <!--</bean>-->
     <!--配置事务管理器-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>

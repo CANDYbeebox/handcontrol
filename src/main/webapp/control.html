@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.min.css">
+    <style>
+        button{
+            width:150px;
+            height:100px;
+        }
+    </style>
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="static/jquery/jquery-3.2.1.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+    <title>遥控</title>
+</head>
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6"><button class="bg-primary" style='height:150px;width:300px;font-size:40px' onclick="autoControl()">自动控制</button> </div>
+            <div class="col-xs-6"><button class="bg-success" style='height:150px;width:300px;font-size:40px' onclick="handControl()">手动控制</button> </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6"><button class="bg-primary" style='height:150px;width:300px;font-size:40px' onclick="setStates('bikeZero')">无车</button> </div>
+            <div class="col-xs-6"><button class="bg-success" style='height:150px;width:300px;font-size:40px' onclick="setStates('bikeOne')">有车</button> </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6"><button class="bg-primary" style='height:150px;width:300px;font-size:40px' onclick="setStates('dogZero')">无狗</button> </div>
+            <div class="col-xs-6"><button class="bg-success" style='height:150px;width:300px;font-size:40px' onclick="setStates('dogOne')">有狗</button> </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6"><button class="bg-primary" style='height:150px;width:300px;font-size:40px' onclick="setStates('doorZero')">门关</button> </div>
+            <div class="col-xs-6"><button class="bg-success" style='height:150px;width:300px;font-size:40px' onclick="setStates('doorOne')">门开</button> </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-xs-6"><button class="bg-primary" style='height:150px;width:300px;font-size:40px' onclick="setStates('violentZero')">无暴力行为</button> </div>
+            <div class="col-xs-6"><button class="bg-success" style='height:150px;width:300px;font-size:40px' onclick="setStates('violentOne')">有暴力行为</button> </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+<script>
+    function autoControl() {
+        $.ajax({
+            type: 'post',
+            url: 'autoControl.do',
+            // data: $("#register_form").serialize(),
+
+            success: function(data) {
+
+            }
+        });
+    }
+
+    function handControl() {
+        $.ajax({
+            type: 'post',
+            url: 'handControl.do',
+            // data: $("#register_form").serialize(),
+
+            success: function(data) {
+
+            }
+        });
+    }
+
+
+
+    function setStates(signal) {
+        $.ajax({
+            type: 'post',
+            url: 'stateSet.do',
+            data: {
+                signal: signal,
+            },
+            success: function(data) {
+
+            }
+        });
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

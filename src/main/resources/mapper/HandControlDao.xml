@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.black.dao.HandControlDao">
+    <select id="selectOptions" resultType="com.black.pojo.OptionEntity">
+        select * from elevatoroptions
+    </select>
+
+    <update id="setAuto">
+        UPDATE elevatoroptions
+        SET recognize_start=1
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setHand">
+        UPDATE elevatoroptions
+        SET recognize_start=0,door=0,bike=0,dog=0,violent=0
+        WHERE ID=1
+    </update>
+
+
+    <update id="setDogZero">
+        UPDATE elevatoroptions
+        SET dog=0
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setDogOne">
+        UPDATE elevatoroptions
+        SET dog=1
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setBikeZero">
+        UPDATE elevatoroptions
+        SET bike=0
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setBikeOne">
+        UPDATE elevatoroptions
+        SET bike=1
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setDoorZero">
+        UPDATE elevatoroptions
+        SET door=0
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setDoorOne">
+        UPDATE elevatoroptions
+        SET door=1
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setViolentZero">
+        UPDATE elevatoroptions
+        SET violent=0
+        WHERE recognize_start=0
+    </update>
+
+    <update id="setViolentOne">
+        UPDATE elevatoroptions
+        SET violent=1
+        WHERE recognize_start=0
+    </update>
+
+
+</mapper>

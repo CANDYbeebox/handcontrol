@@ -21,6 +21,20 @@
     <servlet-name>spring-mvc</servlet-name>
   </filter-mapping>
 
+  <filter>
+    <description>shiro 权限拦截</description>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <init-param>
+      <param-name>targetFilterLifecycle</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
 
   <listener>
     <description>启动spring容器</description>
@@ -47,6 +61,6 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
-    <welcome-file>entrance.jsp</welcome-file>
+    <welcome-file>control.html</welcome-file>
   </welcome-file-list>
 </web-app>
